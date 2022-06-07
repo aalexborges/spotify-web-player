@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Container } from './styles'
 
-const HomeListTitle = ({ title }: { title: string }) => {
+const ListTitle = ({ title }: { title: string }) => {
   return (
     <Container>
       <h2>
@@ -13,4 +13,4 @@ const HomeListTitle = ({ title }: { title: string }) => {
   )
 }
 
-export default HomeListTitle
+export default ListTitle

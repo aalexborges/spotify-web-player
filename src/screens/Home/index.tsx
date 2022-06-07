@@ -1,19 +1,19 @@
-import HomeListTitle from '../../components/HomeListTitle'
+import ListTitle from '../../components/ListTitle'
 
 import { Container } from './styles'
 
 const Home = () => {
   return (
     <Container>
-      <HomeListTitle title="Tocado recentemente" />
+      <ListTitle title="Tocado recentemente" />
 
-      <HomeListTitle title="Tristeza" />
+      <ListTitle title="Tristeza" />
 
-      <HomeListTitle title="Programas para conhecer" />
+      <ListTitle title="Programas para conhecer" />
 
-      <HomeListTitle title="100% você" />
+      <ListTitle title="100% você" />
 
-      <HomeListTitle title="Playlists anos 2010 do momento" />
+      <ListTitle title="Playlists anos 2010 do momento" />
     </Container>
   )
 }

@@ -2,11 +2,11 @@ import '@testing-library/jest-dom'
 
 import { render, screen } from '../../../tests/utils/testUtils'
 
-import HomeListTitle from '.'
+import ListTitle from '.'
 
-describe('HomeListTitle', () => {
+describe('ListTitle', () => {
   it('should render', () => {
-    render(<HomeListTitle title="Titulo teste" />)
+    render(<ListTitle title="Titulo teste" />)
 
     expect(screen.getByText('Titulo teste')).toBeInTheDocument()
     expect(screen.getByText('Ver tudo')).toBeInTheDocument()
