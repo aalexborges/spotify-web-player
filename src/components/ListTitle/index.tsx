@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom'
 import { Container } from './styles'
 
-const ListTitle = ({ title }: { title: string }) => {
+const ListTitle = ({ title, noMore }: { title: string; noMore?: boolean }) => {
   return (
     <Container>
       <h2>
         <Link to="/">{title}</Link>
       </h2>
 
-      <Link to="/">Ver tudo</Link>
+      {!noMore && <Link to="/">Ver tudo</Link>}
     </Container>
   )
 }
