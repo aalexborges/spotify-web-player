@@ -10,7 +10,7 @@ Clone of Spotify web player interface. Made in Typescript using React.
 Clone the project
 
 ```bash
-git clone https://github.com/AlexBorgesDev/spotify-web-player
+git clone https://github.com/AlexBorgesDev/spotify-web-player.git
 ```
 
 Go to the project directory
