@@ -1,3 +1,10 @@
+<p align="center">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/AlexBorgesDev/spotify-web-player.svg" />
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/AlexBorgesDev/spotify-web-player.svg" />
+  <img alt="Package License" src="https://img.shields.io/github/license/AlexBorgesDev/spotify-web-player.svg" />
+  <a href='https://coveralls.io/github/AlexBorgesDev/spotify-web-player?branch=main'><img src='https://coveralls.io/repos/github/AlexBorgesDev/spotify-web-player/badge.svg?branch=main' alt='Coverage Status' /></a>
+</p>
+
 # Spotify - Web player
 
 Clone of Spotify web player interface. Made in Typescript using React.
