@@ -1,4 +1,5 @@
 import { HTMLAttributes, useCallback, useEffect, useRef } from 'react'
+import { useLocation } from 'react-router-dom'
 
 import {
   Container,
@@ -16,7 +17,11 @@ type ThumbScroll = {
 }
 
 const Scrollbar = (props: ScrollbarProps) => {
+  const { pathname } = useLocation()
+
   const ref = useRef<HTMLElement>(null)
+  const scrollRef = useRef<HTMLDivElement>(null)
+
   const trackRef = useRef<HTMLDivElement>(null)
   const thumbRef = useRef<HTMLDivElement>(null)
   const observer = useRef<ResizeObserver | null>(null)
@@ -120,10 +125,16 @@ const Scrollbar = (props: ScrollbarProps) => {
 
       const { clientHeight, scrollHeight } = target
 
-      thumb.style.height = `${Math.max(
-        (clientHeight / scrollHeight) * trackSize,
-        20
-      )}px`
+      const height = Math.max((clientHeight / scrollHeight) * trackSize, 20)
+      thumb.style.height = `${height}px`
+
+      const showScroll = height !== scrollHeight
+
+      if (scrollRef.current) {
+        scrollRef.current.style.transform = `translate(${
+          showScroll ? 0 : 22
+        }px, 0px)`
+      }
     }
 
     if (ref.current && trackRef.current) {
@@ -141,7 +152,7 @@ const Scrollbar = (props: ScrollbarProps) => {
         target.removeEventListener('scroll', handleThumbPosition)
       }
     }
-  }, [handleThumbPosition])
+  }, [handleThumbPosition, pathname])
 
   useEffect(() => {
     document.addEventListener('mousemove', handleThumbMousemove)
@@ -159,7 +170,7 @@ const Scrollbar = (props: ScrollbarProps) => {
     <Container ref={ref} {...props}>
       {props.children}
 
-      <ScrollbarContainer>
+      <ScrollbarContainer ref={scrollRef}>
         <ScrollTrack ref={trackRef} onClick={handleTrackClick}></ScrollTrack>
         <ScrollThumb
           ref={thumbRef}
