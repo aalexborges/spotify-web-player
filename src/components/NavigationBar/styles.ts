@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.header`
+export const Container = styled.header<{ bg?: string }>`
   z-index: 980;
 
   height: 64px;
@@ -13,6 +13,9 @@ export const Container = styled.header`
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
+
+  transition: background-color 0.2s linear;
+  background-color: ${({ bg }) => bg || 'transparent'};
 `
 
 export const ButtonsContainer = styled.div`
