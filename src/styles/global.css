@@ -10,6 +10,7 @@ body {
   font-family: 'Nunito', 'Roboto', sans-serif;
   font-weight: 400;
 
+  overflow: hidden;
   background-color: #000000;
 
   -webkit-font-smoothing: antialiased;
