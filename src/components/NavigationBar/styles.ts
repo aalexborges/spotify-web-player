@@ -1,10 +1,13 @@
 import styled from 'styled-components'
 
 export const Container = styled.header`
-  top: 0px;
+  z-index: 980;
+
   height: 64px;
-  position: sticky;
   padding: 16px 32px;
+
+  top: 0px;
+  position: sticky;
 
   display: flex;
   align-items: center;
