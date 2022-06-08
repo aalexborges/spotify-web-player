@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
-export const GridContainer = styled.div`
+import Scrollbar from '../../components/Scrollbar'
+
+export const GridContainer = styled.main`
   width: 100%;
   height: 100vh;
   max-height: 100vh;
@@ -10,17 +12,8 @@ export const GridContainer = styled.div`
   grid-template-rows: 1fr auto;
 `
 
-export const Main = styled.main`
-  position: relative;
+export const Main = styled(Scrollbar)`
   background-color: #121212;
-
-  overflow: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
 `
 
 export const Content = styled.div`
