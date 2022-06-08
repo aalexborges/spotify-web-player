@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom'
 
 import { Container, Content, List, ListItem, Logo, LogoLink } from './styles'
 
-import { ReactComponent as Heart } from '../../assets/svg/Heart.svg'
+import { ReactComponent as Heart } from '../../assets/svg/heart.svg'
 import { ReactComponent as Home } from '../../assets/svg/home.svg'
 import { ReactComponent as HomeOutline } from '../../assets/svg/home-outline.svg'
 import { ReactComponent as Library } from '../../assets/svg/library.svg'
