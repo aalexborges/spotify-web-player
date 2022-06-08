@@ -12,5 +12,11 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: './tests/setup.ts',
+    coverage: {
+      all: true,
+      src: ['./src'],
+      exclude: ['main.tsx', 'vite-env.d.ts', 'tests/**'],
+      reporter: ['text', 'lcov'],
+    },
   },
 })
