@@ -7,7 +7,7 @@ import { ReactComponent as Home } from '../../assets/svg/home.svg'
 import { ReactComponent as HomeOutline } from '../../assets/svg/home-outline.svg'
 import { ReactComponent as Library } from '../../assets/svg/library.svg'
 import { ReactComponent as LibraryOutline } from '../../assets/svg/library-outline.svg'
-import { ReactComponent as Plus } from '../../assets/svg/Plus.svg'
+import { ReactComponent as Plus } from '../../assets/svg/plus.svg'
 import { ReactComponent as Search } from '../../assets/svg/search.svg'
 import { ReactComponent as SearchOutline } from '../../assets/svg/search-outline.svg'
 
