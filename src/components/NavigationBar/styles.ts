@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.header<{ bg?: string }>`
+export const Container = styled.header`
   z-index: 980;
 
   height: 64px;
@@ -14,8 +14,7 @@ export const Container = styled.header<{ bg?: string }>`
   flex-direction: row;
   justify-content: space-between;
 
-  transition: background-color 0.2s linear;
-  background-color: ${({ bg }) => bg || 'transparent'};
+  background-color: rgba(0, 0, 0, 0);
 `
 
 export const LeftContainer = styled.div`
