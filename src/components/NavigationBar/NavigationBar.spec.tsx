@@ -37,4 +37,17 @@ describe('NavigationBar', () => {
     expect(screen.getByText('Perfil')).toBeInTheDocument()
     expect(screen.getByText('Sair')).toBeInTheDocument()
   })
+
+  it('should show a search input when the page is /search', () => {
+    render(<NavigationBar />)
+
+    let input = screen.queryByPlaceholderText('Artistas, músicas ou podcasts')
+    expect(input).toBeNull()
+
+    window.history.pushState({}, 'Test page', '/search')
+    render(<NavigationBar />)
+
+    input = screen.getByPlaceholderText('Artistas, músicas ou podcasts')
+    expect(input).toBeInTheDocument()
+  })
 })
