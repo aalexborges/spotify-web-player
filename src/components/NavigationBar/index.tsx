@@ -1,10 +1,11 @@
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 
 import {
-  ButtonsContainer,
   Container,
   Dropdown,
   DropdownButton,
+  LeftContainer,
   NavigationButton,
   UserButton,
 } from './styles'
@@ -15,13 +16,16 @@ import { ReactComponent as Down } from '../../assets/svg/caret-down.svg'
 import { ReactComponent as Left } from '../../assets/svg/chevron-left.svg'
 import { ReactComponent as Right } from '../../assets/svg/chevron-right.svg'
 import { ReactComponent as NewTab } from '../../assets/svg/new-tab.svg'
+import SearchInput from '../SearchInput'
 
 const NavigationBar = () => {
+  const { pathname } = useLocation()
+
   const [openDropdown, setOpenDropdown] = useState(false)
 
   return (
     <Container>
-      <ButtonsContainer>
+      <LeftContainer>
         <NavigationButton type="button" aria-hidden aria-label="Voltar">
           <Left />
         </NavigationButton>
@@ -33,7 +37,9 @@ const NavigationBar = () => {
           disabled>
           <Right />
         </NavigationButton>
-      </ButtonsContainer>
+      </LeftContainer>
+
+      {pathname === '/search' && <SearchInput />}
 
       <UserButton
         type="button"

@@ -18,7 +18,7 @@ export const Container = styled.header<{ bg?: string }>`
   background-color: ${({ bg }) => bg || 'transparent'};
 `
 
-export const ButtonsContainer = styled.div`
+export const LeftContainer = styled.div`
   display: flex;
   flex-direction: row;
 
