@@ -16,7 +16,7 @@ export default defineConfig({
       all: true,
       src: ['./src'],
       exclude: ['main.tsx', 'vite-env.d.ts', 'tests/**'],
-      reporter: ['text', 'lcov'],
+      reporter: ['text', 'lcov', 'clover', 'json'],
     },
   },
 })
