@@ -15,12 +15,7 @@ export default defineConfig({
     coverage: {
       all: true,
       src: ['./src'],
-      exclude: [
-        'main.tsx',
-        'vite-env.d.ts',
-        'tests/**',
-        'src/components/Scrollbar/**',
-      ],
+      exclude: ['main.tsx', 'vite-env.d.ts', 'tests/**'],
       reporter: ['text', 'lcov'],
     },
   },
