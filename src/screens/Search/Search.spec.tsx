@@ -14,7 +14,9 @@ describe('Search', () => {
     expect(screen.getByText('Navegar por todas as seções')).toBeInTheDocument()
 
     for (const { name } of categories) {
-      expect(screen.getByText(name)).toBeInTheDocument()
+      if (name === 'Dance / Eletrônica') {
+        expect(screen.getAllByText(name).length).toBe(2)
+      } else expect(screen.getByText(name)).toBeInTheDocument()
     }
   })
 })
