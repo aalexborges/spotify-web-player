@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.section`
+export const Container = styled.div`
   max-width: 1955px;
 
   gap: 16px;
@@ -10,6 +10,16 @@ export const Container = styled.section`
   @media (min-width: 1024px) {
     padding: 16px 32px 48px;
   }
+`
+
+export const Favorites = styled.section`
+  overflow: hidden;
+
+  gap: 24px;
+  display: grid;
+  grid-auto-rows: 0;
+  grid-template-rows: 220px;
+  grid-template-columns: repeat(8, 180px);
 `
 
 export const AllContainer = styled.section`
