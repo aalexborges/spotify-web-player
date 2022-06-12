@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom'
 
-import { act, render, screen } from '../../../tests/utils/testUtils'
+import { act, fireEvent, render, screen } from '../../../tests/utils/testUtils'
 
 import NavigationBar from '.'
 
@@ -30,12 +30,28 @@ describe('NavigationBar', () => {
     expect(screen.queryByText('Sair')).toBeNull()
 
     act(() => {
-      screen.getByText('Fake User').click()
+      fireEvent.click(screen.getByText('Fake User'))
     })
 
     expect(screen.getByText('Conta')).toBeInTheDocument()
     expect(screen.getByText('Perfil')).toBeInTheDocument()
     expect(screen.getByText('Sair')).toBeInTheDocument()
+  })
+
+  it('should close the dropdown if you click any other area', () => {
+    render(<NavigationBar />)
+
+    expect(screen.queryByText('Conta')).toBeNull()
+    act(() => {
+      fireEvent.click(screen.getByText('Fake User'))
+    })
+    expect(screen.getByText('Conta')).toBeInTheDocument()
+
+    expect(screen.getByLabelText('Avançar')).toBeInTheDocument()
+    act(() => {
+      fireEvent.click(screen.getByLabelText('Avançar'))
+    })
+    expect(screen.queryByText('Conta')).toBeNull()
   })
 
   it('should show a search input when the page is /search', () => {
