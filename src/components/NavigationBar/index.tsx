@@ -1,4 +1,4 @@
-import { forwardRef, useState } from 'react'
+import { forwardRef, useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
 import {
@@ -19,10 +19,30 @@ import { ReactComponent as NewTab } from '../../assets/svg/new-tab.svg'
 
 import SearchInput from '../SearchInput'
 
+type MEvent = React.MouseEvent<HTMLButtonElement, MouseEvent>
+
 const NavigationBar = forwardRef<HTMLElement>(function NavigationBar(_, ref) {
   const { pathname } = useLocation()
 
   const [openDropdown, setOpenDropdown] = useState(false)
+
+  const toggleDropdown = (event: MEvent) => {
+    event.preventDefault()
+    event.stopPropagation()
+    setOpenDropdown(!openDropdown)
+  }
+
+  useEffect(() => {
+    function onClick() {
+      if (openDropdown) setOpenDropdown(false)
+    }
+
+    document.addEventListener('click', onClick)
+
+    return () => {
+      document.removeEventListener('click', onClick)
+    }
+  }, [openDropdown])
 
   return (
     <Container ref={ref}>
@@ -46,7 +66,7 @@ const NavigationBar = forwardRef<HTMLElement>(function NavigationBar(_, ref) {
         type="button"
         aria-expanded="false"
         openDropdown={openDropdown}
-        onClick={() => setOpenDropdown(!openDropdown)}>
+        onClick={toggleDropdown}>
         <img
           src={userImg}
           aria-hidden="false"
