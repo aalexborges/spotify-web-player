@@ -66,4 +66,19 @@ describe('NavigationBar', () => {
     input = screen.getByPlaceholderText('Artistas, músicas ou podcasts')
     expect(input).toBeInTheDocument()
   })
+
+  it('should show a collections navigation when the page is /collection', () => {
+    render(<NavigationBar />)
+
+    let navCollections = screen.queryByTestId('nav-collections')
+    expect(navCollections).toBeNull()
+
+    window.history.pushState({}, 'Collections', '/collection')
+    render(<NavigationBar />)
+
+    expect(window.location.pathname).toEqual('/collection')
+
+    navCollections = screen.getByTestId('nav-collections')
+    expect(navCollections).toBeInTheDocument()
+  })
 })

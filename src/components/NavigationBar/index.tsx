@@ -18,6 +18,7 @@ import { ReactComponent as Right } from '../../assets/svg/chevron-right.svg'
 import { ReactComponent as NewTab } from '../../assets/svg/new-tab.svg'
 
 import SearchInput from '../SearchInput'
+import NavCollections from '../NavCollections'
 
 type MEvent = React.MouseEvent<HTMLButtonElement, MouseEvent>
 
@@ -61,6 +62,7 @@ const NavigationBar = forwardRef<HTMLElement>(function NavigationBar(_, ref) {
       </LeftContainer>
 
       {pathname === '/search' && <SearchInput />}
+      {pathname === '/collection' && <NavCollections />}
 
       <UserButton
         type="button"
