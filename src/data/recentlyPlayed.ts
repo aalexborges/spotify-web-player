@@ -9,11 +9,13 @@ import mixRelax from '../assets/images/mix-relax.jpg'
 import my2020 from '../assets/images/2020.jpg'
 import news from '../assets/images/news.jpg'
 
+import likedSongsData from './likedSongs'
+
 const recentlyPlayed: AlbumListItemProps[] = [
   {
     src: likedSongs,
     title: 'Músicas Curtidas',
-    text: '361 músicas',
+    text: `${likedSongsData.length} músicas`,
     to: '/collection/tracks',
   },
   {
