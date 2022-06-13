@@ -15,6 +15,10 @@ export const Container = styled.header`
   justify-content: space-between;
 
   background-color: rgba(0, 0, 0, 0);
+
+  @media (max-width: 1023px) {
+    padding: 16px;
+  }
 `
 
 export const LeftContainer = styled.div`
@@ -94,6 +98,13 @@ export const UserButton = styled.button<{ openDropdown?: boolean }>`
   &:hover,
   &:focus-visible {
     background-color: #282828;
+  }
+
+  @media (max-width: 1023px) {
+    span,
+    svg {
+      display: none;
+    }
   }
 `
 
