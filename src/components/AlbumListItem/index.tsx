@@ -57,8 +57,7 @@ const AlbumListItem = ({ text, title, to, src }: AlbumListItemProps) => {
           ref={playRef}
           data-testid="play-button"
           aria-label="Tocar Músicas Curtidas"
-          type="button"
-          onClick={onClick}>
+          type="button">
           <div>
             <Play />
           </div>
