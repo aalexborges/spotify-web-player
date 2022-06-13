@@ -20,7 +20,7 @@ describe('AlbumListItem', () => {
       expect(window.location.pathname).toEqual('/')
       render(<AlbumListItem src="" title="Test" text="Text" />)
 
-      act(() => screen.getByTestId('play-button').click())
+      act(() => screen.getByTestId('card-click-handler').click())
       expect(window.location.pathname).toEqual('/')
     })
 
