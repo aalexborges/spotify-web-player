@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 import AsideNavigation from '../../components/AsideNavigation'
 import MainBGGradient from '../../components/MainBGGradient'
 import NavigationBar from '../../components/NavigationBar'
+import PlayController from '../../components/PlayController'
 
 // Screens
 import Collection from '../Collection'
@@ -44,6 +45,8 @@ const App = () => {
           </Routes>
         </Content>
       </Main>
+
+      <PlayController />
     </GridContainer>
   )
 }
