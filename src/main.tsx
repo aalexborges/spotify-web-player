@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 import App from './screens/App'
 
+import './styles/font.css'
 import './styles/global.css'
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
