@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useState } from 'react'
+import { forwardRef, memo, useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
 import {
@@ -93,4 +93,4 @@ const NavigationBar = forwardRef<HTMLElement>(function NavigationBar(_, ref) {
   )
 })
 
-export default NavigationBar
+export default memo(NavigationBar)

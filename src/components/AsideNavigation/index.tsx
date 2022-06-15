@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 import { Container, Content, List, ListItem, Logo, LogoLink } from './styles'
@@ -70,4 +71,4 @@ const AsideNavigation = () => {
   )
 }
 
-export default AsideNavigation
+export default memo(AsideNavigation)

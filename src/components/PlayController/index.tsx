@@ -1,3 +1,5 @@
+import { memo } from 'react'
+
 import {
   Container,
   Content,
@@ -134,4 +136,4 @@ const PlayController = () => {
   )
 }
 
-export default PlayController
+export default memo(PlayController)
