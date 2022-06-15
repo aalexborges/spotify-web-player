@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import bgGradient from '../../assets/svg/home-bg-gradient.svg'
 
 export const BG = styled.div<{ likedSong?: boolean }>`
+  z-index: -1;
+
   width: 100%;
   height: 232px;
   position: absolute;
