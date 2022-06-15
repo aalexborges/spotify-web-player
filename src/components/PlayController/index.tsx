@@ -16,7 +16,7 @@ import {
   VolumeBar,
 } from './styles'
 
-import miracles from '../../assets/images/miracles.jpg'
+import miracles from '../../assets/images/albums/miracles.jpg'
 
 import { ReactComponent as Device } from '../../assets/svg/device.svg'
 import { ReactComponent as Fullscreen } from '../../assets/svg/fullscreen.svg'
@@ -100,7 +100,7 @@ const PlayController = () => {
             <div>
               <div></div>
             </div>
-            <span>3:54</span>
+            <span>3:55</span>
           </MiddleBottom>
         </Middle>
 
