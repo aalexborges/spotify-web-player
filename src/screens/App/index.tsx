@@ -36,6 +36,7 @@ const App = () => {
 
       <Scrollbars
         onScroll={onMainScroll}
+        style={{ backgroundColor: '#121212' }}
         renderTrackVertical={props => <ScrollThumb {...props} />}
         renderThumbVertical={props => <Scroll {...props} />}>
         <Main>
