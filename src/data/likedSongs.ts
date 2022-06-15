@@ -1,9 +1,14 @@
+import bullets from '../assets/images/albums/bullets.jpg'
+import crossRoad from '../assets/images/albums/cross-road.jpg'
 import darlin from '../assets/images/albums/darlin.jpg'
 import existForLove from '../assets/images/albums/exist-for-love.jpg'
 import glassySky from '../assets/images/albums/glassy-sky.jpg'
 import lovingYou from '../assets/images/albums/loving-you.jpg'
 import mansion from '../assets/images/albums/mansion.jpg'
 import miracles from '../assets/images/albums/miracles.jpg'
+import realThings from '../assets/images/albums/real-things.jpg'
+import riptide from '../assets/images/albums/riptide.jpg'
+import scarboroughFair from '../assets/images/albums/scarborough-fair.jpg'
 import tom from '../assets/images/albums/tom.jpg'
 import vertigo from '../assets/images/albums/vertigo.jpg'
 import yours from '../assets/images/albums/yours.jpg'
@@ -59,10 +64,40 @@ const likedSongs: LikedSongs[] = [
     duration: '4:29',
   },
   {
+    name: 'Scarborough Fair',
+    artist: 'AURORA',
+    album: { src: scarboroughFair, name: 'Scarborough Fair' },
+    duration: '3:29',
+  },
+  {
     name: 'Exist for Love',
     artist: 'AURORA',
     album: { src: existForLove, name: 'Exist For Love' },
     duration: '4:12',
+  },
+  {
+    name: 'Real Things',
+    artist: 'Ruel',
+    album: { src: realThings, name: 'Free Time' },
+    duration: '3:12',
+  },
+  {
+    name: 'BULLETS',
+    artist: 'Devon',
+    album: { src: bullets, name: 'BULLETS' },
+    duration: '3:38',
+  },
+  {
+    name: 'Always',
+    artist: 'Bon Jovi',
+    album: { src: crossRoad, name: 'Cross Road' },
+    duration: '5:53',
+  },
+  {
+    name: 'Riptide',
+    artist: 'Vance Joy',
+    album: { src: riptide, name: 'Dream Your Life Away' },
+    duration: '3:24',
   },
   {
     name: 'Miracles',
