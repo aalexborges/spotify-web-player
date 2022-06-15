@@ -19,6 +19,23 @@ export const Container = styled.header`
   @media (max-width: 1023px) {
     padding: 16px;
   }
+
+  &.likedSongs {
+    background-color: rgb(80, 56, 160);
+
+    &::before {
+      content: '';
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+
+      top: 0px;
+      left: 0px;
+      position: absolute;
+
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+  }
 `
 
 export const LeftContainer = styled.div`
