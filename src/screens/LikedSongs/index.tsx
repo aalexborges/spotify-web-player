@@ -1,3 +1,5 @@
+import { forwardRef } from 'react'
+
 import { Container, Content, ContentContainer } from './styles'
 
 import PlaylistHeader from '../../components/PlaylistHeader'
@@ -11,7 +13,7 @@ import likedSongsImg from '../../assets/images/liked-songs.png'
 
 import likedSongs from '../../data/likedSongs'
 
-const LikedSongs = () => {
+const LikedSongs = forwardRef<HTMLDivElement>(function LikedSongs(_, ref) {
   return (
     <Container>
       <PlaylistHeader
@@ -27,7 +29,7 @@ const LikedSongs = () => {
 
       <Content>
         <ContentContainer>
-          <PlaylistTableHeader />
+          <PlaylistTableHeader ref={ref} />
 
           {likedSongs.map((data, index) => (
             <PlaylistTableMusic key={index} index={index + 1} {...data} />
@@ -36,6 +38,6 @@ const LikedSongs = () => {
       </Content>
     </Container>
   )
-}
+})
 
 export default LikedSongs
