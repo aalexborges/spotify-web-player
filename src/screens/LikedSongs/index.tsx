@@ -1,8 +1,10 @@
-import { Container } from './styles'
+import { Container, Content, ContentContainer } from './styles'
 
 import PlaylistHeader from '../../components/PlaylistHeader'
 import PlaylistController from '../../components/PlaylistController'
 import PlaylistGradientBG from '../../components/PlaylistGradientBG'
+import PlaylistTableHeader from '../../components/PlaylistTableHeader'
+import PlaylistTableMusic from '../../components/PlaylistTableMusic'
 
 import user from '../../assets/svg/user.svg'
 import likedSongsImg from '../../assets/images/liked-songs.png'
@@ -22,6 +24,16 @@ const LikedSongs = () => {
 
       <PlaylistGradientBG likedSongs />
       <PlaylistController />
+
+      <Content>
+        <ContentContainer>
+          <PlaylistTableHeader />
+
+          {likedSongs.map((data, index) => (
+            <PlaylistTableMusic key={index} index={index + 1} {...data} />
+          ))}
+        </ContentContainer>
+      </Content>
     </Container>
   )
 }
