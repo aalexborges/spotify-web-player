@@ -16,6 +16,18 @@ export const Container = styled.div`
     margin: 0px -32px 16px;
     padding: 0px 32px;
   }
+
+  &.bg {
+    background: #181818;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    -webkit-box-shadow: 0 -1px 0 0 #181818;
+    box-shadow: 0 -1px 0 0 #181818;
+
+    & > div {
+      border-bottom: 1px solid transparent;
+    }
+  }
 `
 
 export const Content = styled.div`
