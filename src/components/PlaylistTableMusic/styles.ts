@@ -1,86 +1,9 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
-  height: 56px;
-  padding: 0px 16px;
-
-  gap: 16px;
-  display: grid;
-  grid-template-columns: [index] 16px [first] 6fr [var1] 4fr [var2] 3fr [last] minmax(
-      120px,
-      1fr
-    );
-
-  border: 1px solid transparent;
-  border-radius: 4px;
-
-  @media (max-width: 999px) {
-    grid-template-columns: [index] 16px [first] 4fr [var1] 2fr [last] minmax(
-        120px,
-        1fr
-      );
-  }
-
-  @media (max-width: 776px) {
-    grid-template-columns: [index] 16px [first] 4fr [last] minmax(120px, 1fr);
-  }
-`
-
-interface IItem {
-  justifySelf?: 'start' | 'end'
-  noLink?: boolean
-}
-
-export const Item = styled.div<IItem>`
-  z-index: 1;
-
+export const Item = styled.div`
   display: flex;
   align-items: center;
-  justify-self: ${({ justifySelf }) => justifySelf};
-
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.625rem;
-
-  & span {
-    display: -webkit-box;
-    word-break: break-all;
-    white-space: unset;
-
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-
-    overflow: hidden;
-    text-overflow: ellipsis;
-
-    color: #b3b3b3;
-    font-size: 0.688rem;
-    font-weight: 400;
-    line-height: 1rem;
-    text-transform: none;
-    letter-spacing: 0.1em;
-
-    cursor: ${({ noLink }) => (noLink ? 'default' : 'pointer')};
-
-    @media (min-width: 768px) {
-      font-size: 0.75rem;
-      line-height: 1rem;
-    }
-
-    &:hover {
-      ${({ noLink }) => (noLink ? 'color: #b3b3b3 !important' : '')};
-      text-decoration: ${({ noLink }) => (noLink ? 'none' : 'underline')};
-    }
-  }
-
-  & svg {
-    width: 16px;
-    height: 16px;
-  }
-
-  &:last-of-type svg {
-    margin-right: 32px;
-  }
+  justify-self: start;
 
   @media (max-width: 999px) {
     &:nth-of-type(4) {
@@ -95,35 +18,131 @@ export const Item = styled.div<IItem>`
   }
 `
 
-export const Index = styled.div`
-  width: 16px;
-  height: 16px;
-  min-height: 16px;
-  min-width: 16px;
+export const ItemText = styled.span`
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+
+  display: -webkit-box;
+  word-break: break-all;
+  white-space: unset;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   color: #b3b3b3;
-  display: inline-block;
-  position: relative;
+  font-size: 0.781rem;
+  font-weight: 400;
+  line-height: 1rem;
+  text-transform: none;
+  letter-spacing: normal;
 
-  & > span {
-    top: -4px;
-    right: 0.25em;
-    position: absolute;
+  cursor: pointer;
 
-    font-size: 1rem;
-    line-height: 1.5rem;
-    font-weight: 400;
-    text-transform: none;
-    letter-spacing: normal;
+  @media (min-width: 768px) {
+    font-size: 0.813rem;
+    line-height: 1rem;
+  }
 
-    @media (min-width: 768px) {
+  &:hover,
+  &:focus-visible {
+    color: #fff;
+    text-decoration: underline;
+  }
+`
+
+export const Index = styled(Item)`
+  justify-self: end;
+
+  & > div {
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+    min-height: 16px;
+
+    display: inline-block;
+    position: relative;
+
+    color: #b3b3b3;
+
+    & > span {
+      top: -4px;
+      right: 0.25em;
+      position: absolute;
+
+      font-variant: tabular-nums;
+
       font-size: 1rem;
+      font-weight: 400;
       line-height: 1.5rem;
+      text-transform: none;
+      letter-spacing: normal;
+
+      @media (min-width: 768px) {
+        font-size: 1rem;
+        line-height: 1.5rem;
+      }
     }
   }
 `
 
-export const Image = styled.img`
+export const PlayButton = styled.button`
+  width: 100%;
+  height: 100%;
+
+  color: #fff;
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0px;
+  background-color: transparent;
+`
+
+export const TitleContainer = styled(Item)`
+  & > div {
+    padding-right: 8px;
+    align-items: center;
+
+    display: grid;
+    column-gap: 8px;
+    grid-template:
+      'title title'
+      'badges subtitle' / auto 1fr;
+
+    & > div {
+      grid-area: title;
+      justify-self: start;
+
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+
+      display: -webkit-box;
+      word-break: break-all;
+      white-space: unset;
+
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5rem;
+      text-transform: none;
+      letter-spacing: normal;
+
+      @media (min-width: 768px) {
+        font-size: 1rem;
+        line-height: 1.5rem;
+      }
+    }
+  }
+`
+
+export const AlbumImage = styled.img`
   width: 40px;
   height: 40px;
   margin-right: 16px;
@@ -138,131 +157,118 @@ export const Image = styled.img`
   background-color: #282828;
 `
 
-export const Content = styled.div`
-  padding-right: 8px;
+export const ArtistName = styled(ItemText)`
+  grid-area: subtitle;
+  grid-column-start: badges;
 
-  display: grid;
-  column-gap: 8px;
-  align-items: center;
-  grid-template:
-    'title title'
-    'badges subtitle' / auto 1fr;
+  font-weight: 500;
+`
 
-  & > div:first-of-type {
-    grid-area: title;
-    justify-self: start;
+export const AlbumName = styled(ArtistName)`
+  font-weight: 400;
+`
 
-    display: -webkit-box;
-    white-space: unset;
-    word-break: break-all;
+export const AddedIn = styled(ItemText)`
+  cursor: default;
 
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-
-    overflow: hidden;
-    text-overflow: ellipsis;
-
-    color: #fff;
-    font-size: 1rem;
-    line-height: 1.5rem;
-    font-weight: 400;
-
-    text-transform: none;
-    letter-spacing: normal;
-
-    @media (min-width: 768px) {
-      font-size: 1rem;
-      line-height: 1.5rem;
-    }
-  }
-
-  & > span {
-    grid-area: subtitle;
-    grid-column-start: badges;
-
-    display: -webkit-box;
-    white-space: unset;
-    word-break: break-all;
-
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-
-    overflow: hidden;
-    text-overflow: ellipsis;
-
+  &:hover,
+  &:focus-visible {
     color: #b3b3b3;
-    font-size: 0.688rem;
-    line-height: 1rem;
-    font-weight: 400;
-    text-transform: none;
-    letter-spacing: normal;
-
-    cursor: pointer;
-
-    @media (min-width: 768px) {
-      font-size: 0.75rem;
-      line-height: 1rem;
-    }
-
-    &:hover {
-      text-decoration: underline;
-    }
+    text-decoration: none;
   }
+`
+
+export const TimeContainer = styled(Item)`
+  grid-column: last;
+  justify-self: end;
 `
 
 export const LikedButton = styled.button`
   margin-right: 16px;
+
   color: #1ed760;
+  display: flex;
 
   border: 0px;
   background-color: transparent;
 
-  &,
-  & svg {
+  & > svg {
     width: 16px;
     height: 16px;
   }
 `
 
-export const Time = styled.div`
+export const Duration = styled(AddedIn)`
   width: 5ch;
   margin-right: 16px;
 
   display: flex;
   justify-content: flex-end;
-
-  color: #a7a7a7;
-  font-size: 0.688rem;
-  line-height: 1rem;
-  font-weight: 400;
-  text-transform: none;
-  letter-spacing: normal;
-
-  @media (min-width: 768px) {
-    font-size: 0.75rem;
-    line-height: 1rem;
-  }
 `
 
 export const MoreButton = styled.button`
-  opacity: 0px;
-
-  color: rgba(255, 255, 255, 0.6);
+  color: #fff;
+  opacity: 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
 
   border: 0px;
   background-color: transparent;
 
-  &,
-  & svg {
+  & > svg {
     width: 16px;
     height: 16px;
   }
+`
+
+export const Container = styled.div`
+  z-index: 1;
+  height: 56px;
+  padding: 0px 16px;
+
+  gap: 16px;
+  display: grid;
+  grid-template-columns: [index] 16px [first] 6fr [var1] 4fr [var2] 3fr [last] minmax(
+      120px,
+      1fr
+    );
+
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: transparent;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
   &:hover,
   &:focus-visible {
-    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.1);
+
+    ${Index} {
+      & span {
+        opacity: 0;
+      }
+    }
+
+    ${ArtistName} {
+      color: #fff;
+    }
+
+    ${PlayButton}, ${MoreButton} {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  @media (max-width: 999px) {
+    grid-template-columns: [index] 16px [first] 4fr [var1] 2fr [last] minmax(
+        120px,
+        1fr
+      );
+  }
+
+  @media (max-width: 776px) {
+    grid-template-columns: [index] 16px [first] 4fr [last] minmax(120px, 1fr);
   }
 `

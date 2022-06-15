@@ -1,16 +1,22 @@
 import {
+  AddedIn,
+  AlbumImage,
+  AlbumName,
+  ArtistName,
   Container,
-  Content,
-  Image,
+  Duration,
   Index,
   Item,
   LikedButton,
   MoreButton,
-  Time,
+  PlayButton,
+  TimeContainer,
+  TitleContainer,
 } from './styles'
 
 import { ReactComponent as Heart } from '../../assets/svg/heart.svg'
 import { ReactComponent as More } from '../../assets/svg/more.svg'
+import { ReactComponent as Play } from '../../assets/svg/play.svg'
 
 interface PlaylistTableMusicProps {
   index: number
@@ -22,15 +28,22 @@ interface PlaylistTableMusicProps {
 
 const PlaylistTableMusic = (props: PlaylistTableMusicProps) => {
   return (
-    <Container>
-      <Item justifySelf="end">
-        <Index>
+    <Container role="row" draggable="true">
+      <Index>
+        <div>
           <span>{props.index}</span>
-        </Index>
-      </Item>
 
-      <Item>
-        <Image
+          <PlayButton
+            type="button"
+            aria-label={`Tocar ${props.name} de ${props.artist}`}
+            aria-expanded="false">
+            <Play />
+          </PlayButton>
+        </div>
+      </Index>
+
+      <TitleContainer>
+        <AlbumImage
           aria-hidden="false"
           draggable="false"
           loading="eager"
@@ -38,31 +51,40 @@ const PlaylistTableMusic = (props: PlaylistTableMusicProps) => {
           alt=""
         />
 
-        <Content>
+        <div>
           <div>{props.name}</div>
-          <span>{props.artist}</span>
-        </Content>
+          <ArtistName>{props.artist}</ArtistName>
+        </div>
+      </TitleContainer>
+
+      <Item>
+        <AlbumName>{props.album.name}</AlbumName>
       </Item>
 
       <Item>
-        <span>{props.album.name}</span>
+        <AddedIn>25 de jan. de 2022</AddedIn>
       </Item>
 
-      <Item noLink>
-        <span>25 de jan. de 2022</span>
-      </Item>
-
-      <Item style={{ gridColumn: 'last' }} justifySelf="end" noLink>
-        <LikedButton>
+      <TimeContainer>
+        <LikedButton
+          type="button"
+          role="switch"
+          aria-label="Remover da Sua Biblioteca"
+          aria-checked="true"
+          aria-expanded="false">
           <Heart />
         </LikedButton>
 
-        <Time>{props.duration}</Time>
+        <Duration>{props.duration}</Duration>
 
-        <MoreButton>
+        <MoreButton
+          type="button"
+          aria-label={`Mais opções para ${props.name} de ${props.artist}`}
+          aria-haspopup="menu"
+          aria-expanded="false">
           <More />
         </MoreButton>
-      </Item>
+      </TimeContainer>
     </Container>
   )
 }
