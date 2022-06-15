@@ -1,5 +1,6 @@
 import { useCallback, useRef } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
+import { Scrollbars } from 'react-custom-scrollbars'
 
 import AsideNavigation from '../../components/AsideNavigation'
 import MainBGGradient from '../../components/MainBGGradient'
@@ -12,9 +13,11 @@ import Home from '../Home'
 import LikedSongs from '../LikedSongs'
 import Search from '../Search'
 
-import { Content, GridContainer, Main } from './styles'
+import { Content, GridContainer, Main, Scroll, ScrollThumb } from './styles'
 
 const App = () => {
+  useLocation()
+
   const navigationRef = useRef<HTMLElement>(null)
 
   const onMainScroll = useCallback((e: React.UIEvent<HTMLElement, UIEvent>) => {
@@ -31,20 +34,25 @@ const App = () => {
     <GridContainer>
       <AsideNavigation />
 
-      <Main onScroll={onMainScroll}>
-        <MainBGGradient />
+      <Scrollbars
+        onScroll={onMainScroll}
+        renderTrackVertical={props => <ScrollThumb {...props} />}
+        renderThumbVertical={props => <Scroll {...props} />}>
+        <Main>
+          <MainBGGradient />
 
-        <Content>
-          <NavigationBar ref={navigationRef} />
+          <Content>
+            <NavigationBar ref={navigationRef} />
 
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/search" element={<Search />} />
-            <Route path="/collection" element={<Collection />} />
-            <Route path="/collection/tracks" element={<LikedSongs />} />
-          </Routes>
-        </Content>
-      </Main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/search" element={<Search />} />
+              <Route path="/collection" element={<Collection />} />
+              <Route path="/collection/tracks" element={<LikedSongs />} />
+            </Routes>
+          </Content>
+        </Main>
+      </Scrollbars>
 
       <PlayController />
     </GridContainer>
