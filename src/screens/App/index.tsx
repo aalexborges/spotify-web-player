@@ -26,22 +26,30 @@ const App = () => {
     (e: React.UIEvent<HTMLElement, UIEvent>) => {
       const navigation = navigationRef.current
       const playlistHeader = playlistHeaderRef.current
-      const y = e.currentTarget.scrollTop
+      const navPlayController = document.getElementById('nav-play-controller')
+
+      const { scrollTop } = e.currentTarget
+
+      if (scrollTop >= 379) {
+        playlistHeader?.classList.add('bg')
+        navPlayController?.classList.add('show')
+      } else {
+        playlistHeader?.classList.remove('bg')
+        navPlayController?.classList.remove('show')
+      }
 
       if (navigation && pathname !== '/collection/tracks') {
-        const opacity = y >= 100 ? 1 : y / 100
+        const opacity = scrollTop >= 100 ? 1 : scrollTop / 100
 
         navigation.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`
         navigation.classList.remove('likedSongs')
       } else if (navigation) {
         navigation.style.backgroundColor = ''
 
-        if (y >= 280) navigation.classList.add('likedSongs')
-        else navigation.classList.remove('likedSongs')
+        scrollTop >= 280
+          ? navigation.classList.add('likedSongs')
+          : navigation.classList.remove('likedSongs')
       }
-
-      if (y >= 379) playlistHeader?.classList.add('bg')
-      else playlistHeader?.classList.remove('bg')
     },
     [pathname]
   )

@@ -19,6 +19,7 @@ import { ReactComponent as NewTab } from '../../assets/svg/new-tab.svg'
 
 import SearchInput from '../SearchInput'
 import NavCollections from '../NavCollections'
+import NavPlayController from '../NavPlayController'
 
 type MEvent = React.MouseEvent<HTMLButtonElement, MouseEvent>
 
@@ -63,6 +64,7 @@ const NavigationBar = forwardRef<HTMLElement>(function NavigationBar(_, ref) {
 
       {pathname === '/search' && <SearchInput />}
       {pathname === '/collection' && <NavCollections />}
+      {pathname === '/collection/tracks' && <NavPlayController />}
 
       <UserButton
         type="button"
