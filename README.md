@@ -9,8 +9,6 @@
 
 Clone of Spotify web player interface. Made in Typescript using React.
 
-> ⚠️ Project under development
-
 
 ## Installation
 
